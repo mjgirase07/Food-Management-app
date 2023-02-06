@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">sample</string>
+    <string name="add_item">Add Item +</string>
+    <string name="enter_weight">Enter Weight</string>
+    <string name="enter_frequency">Enter Frequency</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="submit_data">Submit Data</string>
+    <string name="view_all_items">View All Items</string>
+    <string name="add_items">Add Item +</string>
+    <string name="button">Button</string>
+    <string name="name">Name</string>
+    <string name="name2">Name</string>
+    <string name="name3">Name</string>
+</resources>
