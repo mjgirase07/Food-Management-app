@@ -11,4 +11,6 @@
     <string name="name">Name</string>
     <string name="name2">Name</string>
     <string name="name3">Name</string>
+    <string name="ok">Yes</string>
+    <string name="cancel">No</string>
 </resources>

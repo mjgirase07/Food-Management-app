@@ -69,9 +69,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
         android:ems="10"
+        android:hint="Enter Todays Date"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id" />
 
@@ -82,9 +82,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="39dp"
         android:ems="10"
+        android:hint="Enter Expiry Date"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
