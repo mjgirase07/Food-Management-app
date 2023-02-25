@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.sample.model.Item;
 import com.example.sample.params.Params;
@@ -83,9 +82,14 @@ public class MyDbHandler extends SQLiteOpenHelper {
         return db.update(Params.ITEM_ID,values,Params.ITEM_ID + "=?", new String[]{String.valueOf(item.getItem_id())});
     }
 
-    public void deleteContact(int id){
+    public void deleteContactById(int id){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(Params.TABLE_NAME, Params.ITEM_ID+"=?", new String[]{String.valueOf((id))});
+        db.close();
+    }
+    public void deleteContact(String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(Params.TABLE_NAME, Params.ITEM_ID+"=?", new String[]{String.valueOf((name))});
         db.close();
     }
 }

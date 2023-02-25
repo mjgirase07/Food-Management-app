@@ -1,23 +1,21 @@
 package com.example.sample;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.ParseException;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.sample.model.Item;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Scanner;
-import com.example.sample.model.Item;
 
 public class MainActivityAddItem extends AppCompatActivity {
 
@@ -56,6 +54,9 @@ public class MainActivityAddItem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main_add_item);
         buttonSend = findViewById(R.id.button);
         name = findViewById(R.id.name);
@@ -80,7 +81,7 @@ public class MainActivityAddItem extends AppCompatActivity {
                 obj.setItem_name(d1);
                 obj.setItem_weight(d2);
                 db.addItem(obj);
-                //Toast.makeText(MainActivityAddItem.this, days(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivityAddItem.this, days() +"Days left for Expiry", Toast.LENGTH_SHORT).show();
                 Toast.makeText(MainActivityAddItem.this, "Item Added", Toast.LENGTH_SHORT).show();
             }
         });

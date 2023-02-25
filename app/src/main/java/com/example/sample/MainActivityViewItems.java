@@ -1,6 +1,5 @@
 package com.example.sample;
 
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -29,7 +28,7 @@ public class MainActivityViewItems extends AppCompatActivity {
         ArrayList<String> list = new ArrayList();
         listView = findViewById(R.id.listView);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,list);
+        ArrayAdapter<String> arrayAdapter =new ArrayAdapter(this, android.R.layout.simple_list_item_1,list);
         listView.setAdapter(arrayAdapter);
 
 
@@ -83,8 +82,14 @@ public class MainActivityViewItems extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                db.deleteContact(arg0.getId());
+                                db.deleteContactById(arg0.getId());
+                                List<Item> allItems = db.getAllItems();
+                                for(Item item: allItems){
 
+                                    Log.d("dbdhruv","Id: " + item.getItem_id() + "\n" + "Name: " + item.getItem_name() + "\n" + "Weight: " + item.getItem_weight() + "\n");
+//                                  Log.d("dbdhruv","Name: " + item.getItem_name());
+                                    list.add(item.getItem_name());
+                                }
                             }
                         }).show();
 
@@ -92,6 +97,18 @@ public class MainActivityViewItems extends AppCompatActivity {
                 return true;
             }
         });
+
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//                MyListFragment myListFragment = new MyListFragment();
+//                fragmentTransaction.add(R.id.listView,myListFragment);
+//                fragmentTransaction.commit();
+//            }
+//        });
 
         List<Item> allItems = db.getAllItems();
         for(Item item: allItems){
@@ -101,7 +118,6 @@ public class MainActivityViewItems extends AppCompatActivity {
             list.add(item.getItem_name());
         }
     }
-
 
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //
