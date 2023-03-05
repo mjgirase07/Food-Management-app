@@ -7,12 +7,20 @@ public class Item {
 
     private String item_expiry;
 
-    private String item_frequency;
+    private Integer item_frequency;
 
     public Item(int item_id, String item_name, String item_weight) {
         this.item_id = item_id;
         this.item_name = item_name;
         this.item_weight = item_weight;
+    }
+
+    public Item(int item_id, String item_name, String item_weight,String item_expiry,int item_frequency) {
+        this.item_id = item_id;
+        this.item_name = item_name;
+        this.item_weight = item_weight;
+        this.item_expiry = item_expiry;
+        this.item_frequency = item_frequency;
     }
 
     public String getItem_expiry() {
@@ -23,11 +31,11 @@ public class Item {
         this.item_expiry = item_expiry;
     }
 
-    public String getItem_frequency() {
+    public int getItem_frequency() {
         return item_frequency;
     }
 
-    public void setItem_frequency(String item_frequency) {
+    public void setItem_frequency(int item_frequency) {
         this.item_frequency = item_frequency;
     }
 

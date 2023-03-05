@@ -5,14 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.ListFragment;
+import androidx.fragment.app.Fragment;
 
 
-public class MyListFragment extends ListFragment {
+public class MyListFragment extends Fragment {
 
 
     public MyListFragment() {
-        // Required empty public constructor
+        super(R.layout.fragment_my_list);
     }
 
     @Override

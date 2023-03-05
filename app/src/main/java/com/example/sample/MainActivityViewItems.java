@@ -2,6 +2,8 @@ package com.example.sample;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +40,8 @@ public class MainActivityViewItems extends AppCompatActivity {
         biscuit.setItem_id(1);
         biscuit.setItem_name("GoodDay");
         biscuit.setItem_weight("500");
+        //biscuit.setItem_expiry("01/01/2022");
+        //biscuit.setItem_frequency(3);
         //db.addItem(biscuit);
 
 //        biscuit.setItem_name("Marie");
@@ -82,12 +86,21 @@ public class MainActivityViewItems extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                db.deleteContactById(arg0.getId());
+                                String Name = listView.getItemAtPosition(index).toString();
+                                Cursor c = db.ret_id(Name);
+                                if(c!=null && c.moveToFirst()){
+                                    //Toast.makeText(MainActivityViewItems.this, "Cursor !!", Toast.LENGTH_SHORT).show();
+                                    db.deleteContactById(c.getInt(0));
+                                    c.close();
+                                }
+
+                                arrayAdapter.notifyDataSetChanged();
+                                Log.d("id","id = " + v.getId());
                                 List<Item> allItems = db.getAllItems();
                                 for(Item item: allItems){
 
-                                    Log.d("dbdhruv","Id: " + item.getItem_id() + "\n" + "Name: " + item.getItem_name() + "\n" + "Weight: " + item.getItem_weight() + "\n");
-//                                  Log.d("dbdhruv","Name: " + item.getItem_name());
+                                  //  Log.d("dbdhruv","Id: " + item.getItem_id() + "\n" + "Name: " + item.getItem_name() + "\n" + "Weight: " + item.getItem_weight() + "\n");
+                                 // Log.d("dbdhruv","Name: " + item.getItem_name());
                                     list.add(item.getItem_name());
                                 }
                             }
@@ -98,17 +111,17 @@ public class MainActivityViewItems extends AppCompatActivity {
             }
         });
 
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                FragmentManager fragmentManager = getSupportFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//                MyListFragment myListFragment = new MyListFragment();
-//                fragmentTransaction.add(R.id.listView,myListFragment);
-//                fragmentTransaction.commit();
-//            }
-//        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivityViewItems.this,MainActivityViewInfo.class);
+                String Name = listView.getItemAtPosition(i).toString();
+                intent.putExtra("position",Name.toString());
+                setResult(RESULT_OK,intent);
+                finish();
+                startActivity(intent);
+            }
+        });
 
         List<Item> allItems = db.getAllItems();
         for(Item item: allItems){

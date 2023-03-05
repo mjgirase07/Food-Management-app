@@ -9,7 +9,7 @@ public class Params {
     public static final String ITEM_ID = "itemid";
     public static final String ITEM_NAME = "item";
     public static final String ITEM_WEIGHT = "weight";
-    public static final String ITEM_EXPIRY = "expiry";
+    public static final String ITEM_EXPIRY = "date";
     public static final String ITEM_FREQUENCY = "frequency";
 
 }

@@ -46,9 +46,11 @@ public class MainActivityAddItem extends AppCompatActivity {
     EditText id;
     String d1;
     String d2;
+    String d4;
     EditText date1;
     EditText date2;
-    Integer d3;
+    EditText frequency;
+    Integer d3,d5;
     TextView textView;
     @SuppressLint({"MissingInflatedId", "WrongViewCast"})
     @Override
@@ -59,12 +61,12 @@ public class MainActivityAddItem extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_add_item);
         buttonSend = findViewById(R.id.button);
-        name = findViewById(R.id.name);
+        name = findViewById(R.id.item_name);
         weight = findViewById(R.id.weight);
         id = findViewById(R.id.id);
         date1 = findViewById(R.id.date1);
         date2 = findViewById(R.id.date2);
-
+        //frequency = findViewById(R.id.frequency);
 
 
         MyDbHandler db = new MyDbHandler(MainActivityAddItem.this);
@@ -75,11 +77,14 @@ public class MainActivityAddItem extends AppCompatActivity {
                 d1 = name.getText().toString();
                 d2 = weight.getText().toString();
                 d3 = Integer.valueOf(id.getText().toString());
-
+                d4 = date1.getText().toString();
+                d5 = Integer.valueOf(frequency.getText().toString());
                 Item obj = new Item();
                 obj.setItem_id(d3);
                 obj.setItem_name(d1);
                 obj.setItem_weight(d2);
+                obj.setItem_expiry(d4);
+                obj.setItem_frequency(d5);
                 db.addItem(obj);
                 Toast.makeText(MainActivityAddItem.this, days() +"Days left for Expiry", Toast.LENGTH_SHORT).show();
                 Toast.makeText(MainActivityAddItem.this, "Item Added", Toast.LENGTH_SHORT).show();
