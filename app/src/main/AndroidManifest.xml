@@ -50,6 +50,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivityLogin"
             android:exported="true">
             <intent-filter>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1184262754",
+    "project_id": "food-management-73439",
+    "storage_bucket": "food-management-73439.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1184262754:android:54a5cffde5e7ec0f9e7f3b",
+        "android_client_info": {
+          "package_name": "com.example.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1184262754-69qb1pc53s7bph8gkp3f551755md2k3e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjyTv3oVvbIBkSD4wGAYTR0THl7t1bwVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1184262754-69qb1pc53s7bph8gkp3f551755md2k3e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

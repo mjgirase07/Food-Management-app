@@ -27,7 +27,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
+        android:text="Email"
         android:textColor="#0C0C0C"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -47,7 +47,7 @@
         android:background="@drawable/circular_buton"
         android:ellipsize="none"
         android:ems="10"
-        android:hint="example@123"
+        android:hint="Enter Your Email"
         android:inputType="textPersonName"
         android:padding="10dip"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -134,4 +134,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.166"
         app:srcCompat="@drawable/img" />
+
+    <TextView
+        android:id="@+id/create_account_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not have account? Create Account"
+        android:textColor="@color/purple"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintVertical_bias="0.876" />
 </androidx.constraintlayout.widget.ConstraintLayout>
